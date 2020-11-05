@@ -13,7 +13,9 @@ import Etc from './pages/Etc';
 import Admin from './pages/Admin';
 import Card from './pages/board/CardForm';
 import PtRegister from './pages/board/PtRegister';
-import Sangdam from './pages/Sangdam';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { login } from './store';
 
 
 
@@ -22,6 +24,15 @@ import Sangdam from './pages/Sangdam';
 
 
 function App() {
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if(localStorage.getItem("Authorization")!= null){
+      dispatch(login());
+    }
+    },[]);
+
+  
   return (
    <div>
     <div className="header">
@@ -36,7 +47,6 @@ function App() {
         <Route path="/card" exact={true} component={Card}/>
         <Route path="/ptRegister" exact={true} component={PtRegister}/>
         <Route path="/shop/:id" exact={true} component={Shop} />
-        <Route path="/sangdam" exact={true} component={Sangdam} />
         <Route path="/admin" exact={true} component={Admin} />
      </Switch>
     

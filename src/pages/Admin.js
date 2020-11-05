@@ -40,7 +40,7 @@ const Admin = (props) => {
     const giveAuth = (no) =>{
       console.log(no);
         fetch("http://10.100.102.27:8000/admin/userAuth/" + no, {
-          method: "put",
+          method: "post",
           headers: {
             "Authorization": localStorage.getItem("Authorization")
           },
