@@ -2,11 +2,22 @@ import React, { Component } from 'react';
 import { AlignCenter } from 'react-bootstrap-icons';
 import DaumPostcode from 'react-daum-postcode';
 import styled from 'styled-components';
-
+import AddLocationOutlinedIcon from '@material-ui/icons/AddLocationOutlined';
 
 const ModStyle = styled.div`
-    text-align:center;
+    text-align:right;
+    margin-right:30px;
     margin-top:80px;
+`;
+
+const IconStyle={
+    cursor: "pointer",
+};
+
+const AddrBoxStyle = styled.div`
+    /* border: 1px solid grey;
+    width:20%;
+    margin-right:30px; */
 `;
 
 class AddrModal extends Component {
@@ -42,7 +53,7 @@ class AddrModal extends Component {
           if (data.buildingName !== '') {
             extraAddress += (extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName);
           }
-          AllAddress += (extraAddress !== '' ? ` (${extraAddress})` : '');
+         AllAddress += (extraAddress !== '' ? ` (${extraAddress})` : '');
         }
         this.setState ({
             fullAddress: AllAddress,
@@ -72,9 +83,9 @@ class AddrModal extends Component {
                   <div className="modalCell">
                       <div className="cellFirst">
                           <div className="zipCode">{zoneCode}</div>
-                          <button type="button" onClick={this.handleOpenPost} >
-                              <span>내 위치</span>
-                          </button>
+                          
+                              <AddLocationOutlinedIcon onClick={this.handleOpenPost} style={IconStyle}/>
+                          
                       </div>
                       {
                           isDaumPost ?
@@ -88,7 +99,9 @@ class AddrModal extends Component {
                           		/>
                           : null
                       }
-                      <div className="address">{fullAddress}</div>
+                      <input type="text" class="address" placeholder="내 위치 등록하기" value={fullAddress} />
+                      <AddrBoxStyle className="address">{fullAddress}</AddrBoxStyle>
+                      
                       {/* <div className="addressBox">this.handleInput}/>
                       </div> */}
                   </div>

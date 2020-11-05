@@ -13,6 +13,9 @@ import Etc from './pages/Etc';
 import Admin from './pages/Admin';
 import Card from './pages/board/CardForm';
 import PtRegister from './pages/board/PtRegister';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { login } from './store';
 
 
 
@@ -21,6 +24,15 @@ import PtRegister from './pages/board/PtRegister';
 
 
 function App() {
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if(localStorage.getItem("Authorization")!= null){
+      dispatch(login());
+    }
+    },[]);
+
+  
   return (
    <div>
      <Header/>
