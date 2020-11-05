@@ -10,6 +10,7 @@ import Account from '../pages/user/Account';
 import PtHome from '../pages/PtHome';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../store';
+import MenuBtn from './MenuBtn';
 
 
 
@@ -212,6 +213,7 @@ useEffect(() => {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
           <div className="container">
               <ul className="navbar-nav">
+                  <li><MenuBtn/></li>
                   <li class="nav-item active">
                   <Link to="/" className="navbar-brand" >PT</Link>
                   </li>
