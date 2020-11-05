@@ -14,11 +14,6 @@ const IconStyle={
     cursor: "pointer",
 };
 
-const AddrBoxStyle = styled.div`
-    /* border: 1px solid grey;
-    width:20%;
-    margin-right:30px; */
-`;
 
 class AddrModal extends Component {
     constructor(props) {
@@ -44,6 +39,7 @@ class AddrModal extends Component {
         let AllAddress = data.address;
         let extraAddress = ''; 
         let sigungu = data.sigungu;
+        let sido = data.sido;
         
         
         if (data.addressType === 'R') {
@@ -56,7 +52,7 @@ class AddrModal extends Component {
          AllAddress += (extraAddress !== '' ? ` (${extraAddress})` : '');
         }
         this.setState ({
-            fullAddress: AllAddress,
+            fullAddress: sido +" "+sigungu,
             sigungu : sigungu
         })
       }
@@ -71,7 +67,7 @@ class AddrModal extends Component {
         const modalStyle = {
             position: "absolute",
             top: 200,
-            left: "-2px",
+            left: "800px",
             zIndex: "100",
             border: "1px solid #000000",
             overflow: "hidden"
@@ -100,7 +96,7 @@ class AddrModal extends Component {
                           : null
                       }
                       <input type="text" class="address" placeholder="내 위치 등록하기" value={fullAddress} />
-                      <AddrBoxStyle className="address">{fullAddress}</AddrBoxStyle>
+                      
                       
                       {/* <div className="addressBox">this.handleInput}/>
                       </div> */}
