@@ -75,5 +75,8 @@ npm i react-draft-wysiwyg draft-js
 npm install --save react react-copy-to-clipboard
 
 yarn add redux react-redux
-adsfadsfasd
-adsfasd
+
+=======
+''tqtqtqqtqtqtqtt
+
+> > > > > > > 282bb45a98e1f64a38ab5b65d8d084b620c6d572
