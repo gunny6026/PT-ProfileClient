@@ -8,4 +8,4 @@ const Etc = () => {
     );
 };
 
-export default Etc;<h1> 게시판</h1>
+export default Etc;
