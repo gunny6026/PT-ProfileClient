@@ -1,10 +1,11 @@
-import { Divider } from '@material-ui/core';
+import { Card, CardActionArea, CardContent, CardMedia, Divider, makeStyles, Typography } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import MapInfo from '../../components/MapInfo';
 import NavTool from '../../components/NavTool';
 import ReviewForm from '../../components/ReviewForm';
+import ReviewSlide from '../../components/ReviewSlide';
 
 
 const ContainerStyle = styled.div`
@@ -48,12 +49,13 @@ const BoxStyle = styled.div`
     margin-right: 0% !important;
 `;
 
-const navBar = styled.div`
-    
-`;
 
 const Shop = (props) => {
     
+    const [reviews , setReview] = useState();
+
+ 
+
     const [shop, setShop]= useState([]);
 
     const getAdd = () => {
@@ -66,6 +68,8 @@ const Shop = (props) => {
         copied: false,
       });
     
+    
+
 		/*let jwtTokenTemp = localStorage.getItem("Authorization");
 		let jwtToken = jwtTokenTemp.replace('Bearer ', '');
 
@@ -95,9 +99,13 @@ const Shop = (props) => {
         });
         }
         
+        
+
     useEffect(() => {
         shopFetch(props.match.params.id);
-      }, []);
+    }, []);
+
+      
 
     return (
         <div>
@@ -128,7 +136,7 @@ const Shop = (props) => {
                 
                 <BoxStyle>
                     <navBar className="nav">
-                        <NavTool price={shop.pt_price}/>
+                        <NavTool price={shop.pt_price} ptNo={shop.ptNo}/>
                     </navBar>
                 </BoxStyle>
             </ContainerStyle>
@@ -146,6 +154,13 @@ const Shop = (props) => {
             </CopyToClipboard>
             <br/><br/>
             <h2 className="shopInfo">REVIEW</h2> 
+
+            <br/>
+
+            <ReviewSlide/>
+
+            <br/>
+
             <ReviewForm />
         </div>
     );

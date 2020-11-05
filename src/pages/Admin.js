@@ -3,13 +3,15 @@ import { Pagination } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const TableStyle = styled.div`
-border : 1px solid black;
-border-radius : 2px;
+const TableStyle = styled.table`
+    margin: 10px 10px 10px 10px;
+    text-align:center;
+    border : 1px solid black;
+    border-radius : 2px;
 `;
 
-const Admin = () => {
-    const [userList, setUserList] = useState();
+const Admin = (props) => {
+    const [userList, setUserList] = useState([]);
     const [last, setLast] = useState('');
   	const [page, setPage] = useState(0);
     
@@ -33,21 +35,21 @@ const Admin = () => {
             setUserList(res.content);
             setLast(res.last);
           });
-      }, [page]);
+      }, []);
 
-    const giveAuth = () =>{
-        fetch("http://10.100.102.27:8000/", {
+    const giveAuth = (no) =>{
+      console.log(no);
+        fetch("http://10.100.102.27:8000/admin/userAuth/" + no, {
           method: "put",
-          body: JSON.stringify(),
           headers: {
-            "Content-Type": "application/json",
             "Authorization": localStorage.getItem("Authorization")
           },
         })
         .then(res => res.text())
         .then(res => {
           if(res === "ok"){
-            alert("승인되었습니다");    
+            alert("승인되었습니다");
+            window.location.reload();
           }
         });
     }
@@ -61,8 +63,6 @@ const Admin = () => {
 
             <hr/>
 
-
-
             <TableStyle>
                 
                     <th>회원 번호</th>
@@ -72,12 +72,12 @@ const Admin = () => {
                     <th>승인 버튼</th>
            
                 {userList.map((user) => (
-                    <tr>
-                        <td>{user.no}</td>
+                    <tr key={user.userNo}>
+                        <td>{user.userNo}</td>
                         <td>{user.id}</td>
                         <td>{user.auth_pt}</td>
-                        <td>{user.content}</td>
-                        <td><button onClick={giveAuth} disabled={true}>승인</button></td>
+                        <td>{user.address}</td>
+                        <td><button onClick={()=>giveAuth(user.userNo)} disabled={user.auth_pt === 2 ? false : true}>승인</button></td>
                         
                     </tr>
                 ))}

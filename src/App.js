@@ -13,6 +13,7 @@ import Etc from './pages/Etc';
 import Admin from './pages/Admin';
 import Card from './pages/board/CardForm';
 import PtRegister from './pages/board/PtRegister';
+import Sangdam from './pages/Sangdam';
 
 
 
@@ -23,7 +24,9 @@ import PtRegister from './pages/board/PtRegister';
 function App() {
   return (
    <div>
+    <div className="header">
      <Header/>
+    </div>
      <Switch>        
         <Route path="/" exact={true} component={PtHome}/>
         <Route path="/ptList" exact={true} component={List}/>
@@ -33,8 +36,10 @@ function App() {
         <Route path="/card" exact={true} component={Card}/>
         <Route path="/ptRegister" exact={true} component={PtRegister}/>
         <Route path="/shop/:id" exact={true} component={Shop} />
+        <Route path="/sangdam" exact={true} component={Sangdam} />
+        <Route path="/admin" exact={true} component={Admin} />
      </Switch>
-
+    
    </div>
   );
 }

@@ -10,23 +10,42 @@ const NavSt = styled.div`
     text-align: center;
 `;
 
-const conslerSt = styled.button`
-    
-`;
+const pushCart = (e) =>{
+  e.preventDefault();
 
+  fetch("", {
+    method: "PUT",
+    body: JSON.stringify(),
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization":localStorage.getItem("Authorization"),
+    },
+  })
+    .then((res) => res.text())
+    .then((res) => {
+      if (res === "ok") {
+        alert("장바구니에 담겼습니다");
+      }else{
+    alert("장바구니에 담기지 않았습니다");
+  }
+  });
+}
 
+//상품 번호를 장바구니 테이블에 넣는다
 const NavTool = (props) => {
-    const price = props.price;
+    const {ptNo, price} = props;
 
 
     return (
         <NavSt>
-          <h1>{price}</h1>
-          <Link to={`/`}>
-            <conslerSt>카톡 상담</conslerSt>
+          <h1>{price} 원</h1>
+          <h2 className="salePrice">할인가 : {price * 0.8}</h2>
+          <Link to={`/sangdam`}>
+            <button>카톡 상담</button>
           </Link>
-          <h1>adlsknfladnsk</h1>
-          <h1>adlsknfladnsk</h1>
+          <br/>
+          <button onClick={pushCart}>장바구니 추가</button>
+          <button>바로 결제</button>
         </NavSt>
     );
 };

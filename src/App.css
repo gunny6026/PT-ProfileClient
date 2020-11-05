@@ -17,3 +17,8 @@
 .shopInfo {
   text-align: center;
 }
+
+.salePrice {
+  color: red;
+  opacity: 50%;
+}
