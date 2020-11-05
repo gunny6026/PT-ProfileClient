@@ -63,9 +63,11 @@ const LoginForm = (props) => {
     }).then(res=>{
       if(res ==="ok"){
     // console.log(3,res);
-    dispatch(login());
+    
 
+    dispatch(login());
     alert("로그인 성공");
+    window.location.href="/";
         
 	  }else{
       alert("아이디 또는 비밀번호가 틀렸습니다.");
