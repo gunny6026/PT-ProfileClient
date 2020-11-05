@@ -94,9 +94,9 @@ class AddrModal extends Component {
                   </div>
                   </ModStyle>
                   </div>
-    );
-}
-}
+            );
+        }
+    }
 
 
 export default AddrModal;
