@@ -110,7 +110,7 @@ const Shop = (props) => {
     return (
         <div>
 
-            <h1 className="shopInfo">{shop.pt_name}</h1>
+            <h1 className="al_middle">{shop.pt_name}</h1>
             <div>
             <br/><br/><br/>
             </div>
@@ -153,7 +153,7 @@ const Shop = (props) => {
                 <button onClick={getAdd}>주소복사</button>
             </CopyToClipboard>
             <br/><br/>
-            <h2 className="shopInfo">REVIEW</h2> 
+            <h2 className="al_middle">REVIEW</h2> 
 
             <br/>
 

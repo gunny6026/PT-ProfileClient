@@ -14,11 +14,18 @@
   height: 100px;
 }
 
-.shopInfo {
+.al_middle {
   text-align: center;
 }
 
 .salePrice {
   color: red;
   opacity: 50%;
+}
+
+.tableStyle {
+  margin: 10px 10px 10px 10px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 2px;
 }

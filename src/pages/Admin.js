@@ -63,7 +63,7 @@ const Admin = (props) => {
 
             <hr/>
 
-            <TableStyle>
+            <table className="tableStyle">
                 
                     <th>회원 번호</th>
                     <th>회원 아이디</th>
@@ -82,16 +82,16 @@ const Admin = (props) => {
                     </tr>
                 ))}
                 <div className="d-flex justify-content-center">
-				<Pagination>
-					{page === 0 ? 
-						<Pagination.Item onClick={prev} disabled>Prev</Pagination.Item> : 
-						<Pagination.Item onClick={prev}>Prev</Pagination.Item>}
-					{last === true ? 
-						<Pagination.Item onClick={next} disabled>Next</Pagination.Item> : 
-						<Pagination.Item onClick={next}>Next</Pagination.Item>}
-				</Pagination>
-			</div>
-            </TableStyle>
+                  <Pagination>
+                    {page === 0 ? 
+                      <Pagination.Item onClick={prev} disabled>Prev</Pagination.Item> : 
+                      <Pagination.Item onClick={prev}>Prev</Pagination.Item>}
+                    {last === true ? 
+                      <Pagination.Item onClick={next} disabled>Next</Pagination.Item> : 
+                      <Pagination.Item onClick={next}>Next</Pagination.Item>}
+                  </Pagination>
+                </div>
+            </table>
         </div>
     );
 };

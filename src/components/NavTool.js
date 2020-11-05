@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -36,6 +36,23 @@ const NavTool = (props) => {
     const cart = {
       ptNo: props.ptNo,
       userNo:''
+    }
+    //토큰에서 회원 번호만 받아와서 넣기
+
+    const addCart = () => {
+      fetch("" ,{
+        method : "POST",
+        body:JSON.stringify(cart),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+        },
+      })
+      .then(res => res.text())
+      .then((res) => {
+        if (res === "ok") {
+          alert("장바구니에 담겼습니다");
+        }
+      });
     }
 
     return (
