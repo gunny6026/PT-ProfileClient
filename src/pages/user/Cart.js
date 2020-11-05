@@ -27,6 +27,11 @@ const useStyles = makeStyles({
     margin-bottom:50px;
   `;
 
+  const CardContainer = styled.div`
+    
+        margin : 0px 20px;
+  `;
+
 
 const Cart = () => {
     const classes = useStyles();
@@ -36,6 +41,7 @@ const Cart = () => {
             <CardBox>
             <h1>장바구니</h1>
             </CardBox>
+            <CardContainer> 
             <Card className={classes.root}>
          <CardActionArea>
            <CardMedia
@@ -61,6 +67,7 @@ const Cart = () => {
            </Button>
          </CardActions>
        </Card>
+       </CardContainer>
         </div>
        
     );
