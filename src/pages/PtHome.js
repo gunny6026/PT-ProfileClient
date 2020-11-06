@@ -33,13 +33,14 @@ const PtHome = () => {
         <div>
             
                   <AddrModal/>
-                  {user.auth_pt === 3 ?   <Link to = "/ptregister"> <button>등록</button> </Link>
+                 
+                    <Slider/>
+                    {user.auth_pt === 3 ?   <Link to = "/ptregister"> <button>등록</button> </Link>
                   
                   :   ""
                 
 
                 }
-                    <Slider/>
                     <CardForm/>
                   <Footer/>
 

@@ -64,7 +64,7 @@ const MenuBtn = () => {
                   <ListItemText primary="강의영상" />
                 </ListItem>
             </Link>
-            <Link to={`/etc`}>
+            <Link to={`/boardlist`}>
                 <ListItem button> 
                   <ListItemIcon>📃</ListItemIcon>          
                   <ListItemText primary="게시판" />

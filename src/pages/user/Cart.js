@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -36,6 +36,21 @@ const useStyles = makeStyles({
 const Cart = () => {
     const classes = useStyles();
     
+    const [cart, setCart] = useState([]);
+    console.log("안녕")
+    useEffect( () => {
+      fetch("http://10.100.102.27:8000/admin/userList",{
+        headers:{
+          "Authorization":localStorage.getItem("Authorization"),
+        }
+      } )
+      .then(res => res.json())
+      .then(res=>{
+        setCart(res);
+        console.log("ㅎㅇㅎㅇ")
+        console.log(res);
+      });
+    },[]);
     return (
         <div>
             <CardBox>
@@ -50,6 +65,7 @@ const Cart = () => {
              title="Contemplative Reptile"
            />
            <CardContent>
+             
              <Typography gutterBottom variant="h5" component="h2">
                title
              </Typography>

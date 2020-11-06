@@ -15,6 +15,7 @@ import MenuBtn from './MenuBtn';
 
 
 
+
 const linkStyle = {
     fontSize:"1px",
 }
@@ -126,7 +127,6 @@ fetch("http://10.100.102.27:8000/user/info",{
   .then((res) => res.json())
   .then((res) => {
     setUser(res);
-    console.log(res);
   });
 }
 
@@ -135,7 +135,7 @@ useEffect(() => {
   userFetch();
 }, []);
   
-    const isLogin =useSelector((store)=> store.isLogin);
+    const isLogin = useSelector((store)=> store.isLogin);
     const dispatch = useDispatch();
     const classes = useStyles();
    
