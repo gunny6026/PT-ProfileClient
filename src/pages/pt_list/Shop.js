@@ -47,8 +47,12 @@ const BoxStyle = styled.div`
     width: 33.3333% !important;
     margin-left: 8.33333% !important;
     margin-right: 0% !important;
-`;
+    height: 1500px;
 
+`;
+const navBar = styled.div`
+   
+`;
 
 const Shop = (props) => {
     
@@ -131,20 +135,9 @@ const Shop = (props) => {
                         {shop.pt_address}
                     </h4>
                     <br/><br/>        
-
-                </ContentStyle>
-                
-                <BoxStyle>
-                    <navBar className="nav">
-                        <NavTool price={shop.pt_price} ptNo={shop.ptNo}/>
-                    </navBar>
-                </BoxStyle>
-            </ContainerStyle>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>            
-            <Divider/>
-
-            <br/><br/>
-
+                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> 
+            
             <MapInfo name={shop.pt_name}add={shop.pt_address}/>
             <br/>
 
@@ -152,13 +145,26 @@ const Shop = (props) => {
                 onCopy={() => setState({copied: true})}>
                 <button onClick={getAdd}>주소복사</button>
             </CopyToClipboard>
+                </ContentStyle>
+                
+                <BoxStyle>
+                    <div className="nav">
+                        <h1>dlakdsfnlsadn</h1>
+                    </div>
+                </BoxStyle>
+            </ContainerStyle>
+                  
+            <Divider/>
+
+            <br/><br/>
+
             <br/><br/>
             <h2 className="al_middle">REVIEW</h2> 
 
             <br/>
 
             <ReviewSlide/>
-
+            <NavTool price={shop.pt_price} ptNo={shop.ptNo}/>
             <br/>
 
             <ReviewForm />

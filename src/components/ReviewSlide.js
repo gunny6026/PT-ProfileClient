@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const CardDivStyle = styled.div`
-  display:grid;
-  grid-template-columns: auto auto ;
-  grid-gap : 10px;
-  width : 45%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width : 100%;
   margin : 70px 30px 190px 30px;
   height: 100%;
 `;
@@ -39,7 +39,7 @@ const ReviewSlide = () => {
     
     <CardDivStyle>  
                 {reviews.map( (review) => (
-                   <Card>
+                   <Card className="cardStyle">
                         <CardActionArea>
                             <CardMedia
                             className={classes.media}

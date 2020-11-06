@@ -2,14 +2,20 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const NavSt = styled.div`
-    border: 1px solid rgb(221, 221, 221);
-    border-radius: 12px;
-    padding: 24px;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
-    text-align: center;
-`;
 
+
+
+//상품 번호를 장바구니 테이블에 넣는다
+const NavTool = (props) => {
+    const price = props.price;
+
+    const cart = {
+      ptNo: props.ptNo,
+      userNo:''
+    }
+    //토큰에서 회원 번호만 받아와서 넣기
+
+    
 const addCart = (e) =>{
   e.preventDefault();
 
@@ -29,34 +35,8 @@ const addCart = (e) =>{
   });
 }
 
-//상품 번호를 장바구니 테이블에 넣는다
-const NavTool = (props) => {
-    const price = props.price;
-
-    const cart = {
-      ptNo: props.ptNo,
-      userNo:''
-    }
-    //토큰에서 회원 번호만 받아와서 넣기
-
-    const addCart = () => {
-      fetch("" ,{
-        method : "POST",
-        body:JSON.stringify(cart),
-        headers: {
-          "Content-Type": "application/json; charset=utf-8",
-        },
-      })
-      .then(res => res.text())
-      .then((res) => {
-        if (res === "ok") {
-          alert("장바구니에 담겼습니다");
-        }
-      });
-    }
-
     return (
-        <NavSt>
+        <div >
           <h1>{price} 원</h1>
           <h2 className="salePrice">할인가 : {price * 0.8}</h2>
           <br/>
@@ -66,7 +46,7 @@ const NavTool = (props) => {
           <br/>
           <button onClick={addCart}>장바구니 추가</button>
           <button>바로 결제</button>
-        </NavSt>
+        </div>
     );
 };
 

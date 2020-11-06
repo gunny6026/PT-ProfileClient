@@ -3,10 +3,12 @@
 }
 
 .nav {
-  position: -webkit-sticky;
+  display: inline-block;
   position: sticky;
-  top: 100px;
-  z-index: 1;
+  top: 30px;
+  width: 80px;
+  height: 80px;
+  background: blue;
 }
 
 .editors {
@@ -28,4 +30,11 @@
   text-align: center;
   border: 1px solid black;
   border-radius: 2px;
+}
+
+.cardStyle {
+  margin: 10px;
+  padding: 5px;
+  height: 400px;
+  width: 300px;
 }
