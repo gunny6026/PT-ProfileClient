@@ -28,17 +28,20 @@ class InputText extends React.Component {
 		return "not-handled";
 	};
 
-	onUnderlineClick = () => {
+	onUnderlineClick = (e) => {
+		e.preventDefault();
 		this.onChange(
 			RichUtils.toggleInlineStyle(this.state.editorState, "UNDERLINE")
 		);
 	};
 
-	onBoldClick = () => {
+	onBoldClick = (e) => {
+		e.preventDefault();
 		this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, "BOLD"));
 	};
 
-	onItalicClick = () => {
+	onItalicClick = (e) => {
+		e.preventDefault();
 		this.onChange(
 			RichUtils.toggleInlineStyle(this.state.editorState, "ITALIC")
 		);

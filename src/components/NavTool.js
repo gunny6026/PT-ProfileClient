@@ -7,23 +7,22 @@ import styled from 'styled-components';
 
 //상품 번호를 장바구니 테이블에 넣는다
 const NavTool = (props) => {
-    const price = props.price;
-
-    const cart = {
-      ptNo: props.ptNo,
-      userNo:''
-    }
+    const {price, ptNo} = props;
+ 
     //토큰에서 회원 번호만 받아와서 넣기
 
     
 const addCart = (e) =>{
   e.preventDefault();
-
-  fetch("", {
-    method: "put",
+  let form = document.getElementById("form");
+  const formData = new FormData(form);
+  console.log(formData);
+  fetch("http://10.100.102.27:8000/wish/" + ptNo, {
+          method: "POST",
           headers: {
             "Authorization": localStorage.getItem("Authorization")
           },
+          body: formData
   })
     .then((res) => res.text())
     .then((res) => {
@@ -44,6 +43,9 @@ const addCart = (e) =>{
             <button>카톡 상담</button>
           </Link>
           <br/>
+          <form id="form">
+            <input type="hidden" name="type" value="pt" />
+          </form>
           <button onClick={addCart}>장바구니 추가</button>
           <button>바로 결제</button>
         </div>
