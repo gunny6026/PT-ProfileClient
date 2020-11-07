@@ -66,6 +66,9 @@ const pay = (e) =>{
             <button>카톡 상담</button>
           </Link>
           <br/>
+          <Link to={`/스튜디오 링크/:id`}>
+            <button>연계된 스튜디오에서 할인 받기</button>
+          </Link>
           <form id="form">
             <input type="hidden" name="type" value="pt" />
           </form>

@@ -59,6 +59,7 @@ class InputText extends React.Component {
 				</button>
 				<div className="editors">
 					<Editor
+						
 						editorState={this.state.editorState}
 						handleKeyCommand={this.handleKeyCommand}
 						onChange={this.onChange}
