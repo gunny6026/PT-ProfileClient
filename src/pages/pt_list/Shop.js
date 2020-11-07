@@ -58,7 +58,6 @@ const Shop = (props) => {
     
     const [reviews , setReview] = useState();
 
- 
 
     const [shop, setShop]= useState([]);
 
@@ -99,8 +98,9 @@ const Shop = (props) => {
         }).then(res=>res.json())
         .then(res=>{
             console.log(res);
-            console.log(res.user);
-			setShop(res); 
+            console.log(shop.pt_address);
+
+            setShop(res); 
         });
         }
         
@@ -134,23 +134,23 @@ const Shop = (props) => {
                     <br/><br/>
                     <h4>
                         {shop.pt_address}
-                    </h4>
-                    <br/><br/>        
+                    </h4>       
                     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> 
+                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> 
             
-            <MapInfo name={shop.pt_name}add={shop.pt_address}/>
-            <br/>
+                    <MapInfo name={shop.pt_name} add={shop.ptAddress}/>
+                    <br/>
 
-            <CopyToClipboard text={shop.pt_address}
-                onCopy={() => setState({copied: true})}>
-                <button onClick={getAdd}>주소복사</button>
-            </CopyToClipboard>
+                    <CopyToClipboard text={shop.ptAddress}
+                        onCopy={() => setState({copied: true})}>
+                        <button onClick={getAdd}>주소복사</button>
+                    </CopyToClipboard>
+
                 </ContentStyle>
                 
                 <BoxStyle>
                     <div className="nav">
-                        <h1>dlakdsfnlsadn</h1>
+                    <NavTool price={shop.pt_price} ptNo={shop.ptNo}/>
                     </div>
                 </BoxStyle>
             </ContainerStyle>
@@ -165,10 +165,10 @@ const Shop = (props) => {
             <br/>
 
             <ReviewSlide/>
-            <NavTool price={shop.pt_price} ptNo={shop.ptNo}/>
+            
             <br/>
 
-            <ReviewForm />
+            <ReviewForm ptNo={shop.ptNo}/>
         </div>
     );
 };

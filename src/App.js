@@ -9,7 +9,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Shop from './pages/pt_list/Shop';
 import List from './pages/pt_list/List';
-import Etc from './pages/Etc';
 import Admin from './pages/Admin';
 import Card from './pages/board/CardForm';
 import PtRegister from './pages/board/PtRegister';

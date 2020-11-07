@@ -9,8 +9,8 @@ import CardForm from '../pages/board/CardForm';
 
 
 
-const PtHome = () => {
-  
+const PtHome = (props) => {
+  console.log(props.name);
   const [user, setUser] = useState({});
 
   useEffect ( () => {

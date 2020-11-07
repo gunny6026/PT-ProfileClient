@@ -208,7 +208,13 @@ useEffect(() => {
       localStorage.removeItem("Authorization");
       dispatch(logout());
   }
+  const [keyword, setKeyword] = useState("");
 
+
+  function search() {
+   console.log(keyword);
+  }
+  
     return (
       <header>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -231,7 +237,7 @@ useEffect(() => {
                   <div style={navbarSearch}>
                       
                       <div style={searchBlank}>  
-                          <input type="search" placeholder="Search"></input>
+                          <input type="search" placeholder="Search" onChange={(e) => setKeyword({...keyword, [e.target.name] : e.target.value })}></input>
                       </div>
                   </div>
                   <ul className="navbar-nav ml-auto" style={linkStyle}>

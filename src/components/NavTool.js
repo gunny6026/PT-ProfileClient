@@ -34,6 +34,29 @@ const addCart = (e) =>{
   });
 }
 
+const pay = (e) =>{
+  e.preventDefault();
+  let form = document.getElementById("form");
+  const formData = new FormData(form);
+  formData.append("order_no", ptNo);
+  console.log(formData);
+  fetch("http://10.100.102.27:8000/order", {
+          method: "POST",
+          headers: {
+            "Authorization": localStorage.getItem("Authorization")
+          },
+          body: formData
+  })
+    .then((res) => res.text())
+    .then((res) => {
+      if (res === "ok") {
+        alert("구매에 성공했습니다");
+      }else{
+    alert("구매에 실패했습니다");
+  }
+  });
+}
+
     return (
         <div >
           <h1>{price} 원</h1>
@@ -47,7 +70,7 @@ const addCart = (e) =>{
             <input type="hidden" name="type" value="pt" />
           </form>
           <button onClick={addCart}>장바구니 추가</button>
-          <button>바로 결제</button>
+          <button onClick={pay}>바로 결제</button>
         </div>
     );
 };
