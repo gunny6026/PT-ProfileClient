@@ -2,15 +2,9 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-
-
-
 //상품 번호를 장바구니 테이블에 넣는다
 const NavTool = (props) => {
     const {price, ptNo} = props;
- 
-    //토큰에서 회원 번호만 받아와서 넣기
-
     
 const addCart = (e) =>{
   e.preventDefault();
