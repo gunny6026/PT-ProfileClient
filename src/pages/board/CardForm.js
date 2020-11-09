@@ -16,9 +16,9 @@ import { Link } from "react-router-dom";
 
 const CardDivStyle = styled.div`
   display:grid;
-  grid-template-columns: auto auto ;
+  grid-template-columns: auto auto auto ;
   grid-gap : 10px;
-  width : 45%;
+  width : 80%;
   margin : 70px 30px 190px 30px;
   height: 100%;
 `;

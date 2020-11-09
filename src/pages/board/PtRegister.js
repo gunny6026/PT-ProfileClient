@@ -76,7 +76,11 @@ const PtRegister = (props) => {
             <Input type="text" name="pt_name" placeholder="이름을 등록하세요" /> 
             <Input type="text" name="pt_address" placeholder="주소를 등록하세요" /> 
             <Input type="text" name="pt_content" placeholder="내용을 등록하세요" /> 
-            <Input type="text" name="pt_price" placeholder="가격을 등록하세요"  /> 
+            <Input type="text" name="pt_price" placeholder="1개월 가격"  /> 
+            <Input type="text" name="pt_price" placeholder="3개월 가격"  />
+            <Input type="text" name="pt_price" placeholder="6개월 가격"  />
+            <Input type="text" name="pt_price" placeholder="P.T 1회 가격"  />
+            <Input type="text" name="pt_price" placeholder="그룹 P.T 1회 가격"  />
             <Input type="file" name="pt_img" placeholder="사진 등록" accept="image/png , image/jpeg" /> <br/>
             </Form>
 

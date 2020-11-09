@@ -1,3 +1,4 @@
+import { KeyboardCapslockOutlined } from '@material-ui/icons';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -20,13 +21,17 @@ const NavTool = (props) => {
 
 
     return (
+      
         <NavSt>
+         
           <h1>{price}</h1>
+         <div> <img src={"\\img\\kakako.png"}  alt=""  width="20%"/></div>
+
           <Link to={`/`}>
             <conslerSt>카톡 상담</conslerSt>
           </Link>
-          <h1>adlsknfladnsk</h1>
-          <h1>adlsknfladnsk</h1>
+          <h1>hellchong12</h1>
+          <h1>010-2325-1223</h1>
         </NavSt>
     );
 };

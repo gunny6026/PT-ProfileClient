@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import InputText from './InputText';
+import Button from '@material-ui/core/Button';
 
 
 function rand() {
@@ -106,10 +107,10 @@ const ReviewForm = (props) => {
    
     return (
         <div>
-            <button type="button" onClick={handleOpen}>
-                리뷰 작성
-            </button>
-
+            
+            <Button variant="contained" color="secondary" onClick={handleOpen}>
+            리뷰 작성
+</Button>
             <Modal
                 open={open}
                 onClose={handleClose}

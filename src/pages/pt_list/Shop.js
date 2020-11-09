@@ -5,6 +5,10 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import MapInfo from '../../components/MapInfo';
 import NavTool from '../../components/NavTool';
 import ReviewForm from '../../components/ReviewForm';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import Table from 'react-bootstrap/Table'
+
 
 
 const ContainerStyle = styled.div`
@@ -52,9 +56,25 @@ const navBar = styled.div`
     
 `;
 
+const TableContainer =styled.div`
+    width: 60%;
+`;
+
+const Td = styled.td`
+    text-align: center;
+    font-size: 25px;
+`;
+
+const Th = styled.th`
+    text-align: center;
+    font-size: 25px;
+`;
+
 const Shop = (props) => {
     
-    const [shop, setShop]= useState([]);
+    const [shop, setShop]= useState({
+            user : ""
+    });
 
     const getAdd = () => {
         alert("주소가 복사되었습니다");
@@ -84,21 +104,24 @@ const Shop = (props) => {
 			setPost(res); 
 		});
         */
-       function shopFetch(no){
-           fetch("http://10.100.102.27:8000/ptDetail/" + no, {
+      
+           
+        
+     
+    useEffect(() => {
+        fetch("http://10.100.102.27:8000/ptDetail/" + props.match.params.id, {
             method: "GET"
             
         }).then(res=>res.json())
         .then(res=>{
             console.log(res);
-			setShop(res); 
-        });
-        }
-        
-    useEffect(() => {
-        shopFetch(props.match.params.id);
+            setShop(res); 
+            
+            console.log(shop.ptNo,"zzzzz");
+    });
       }, []);
-
+      console.log(shop,"zzzzz");
+     
     return (
         <div>
 
@@ -132,17 +155,58 @@ const Shop = (props) => {
                     </navBar>
                 </BoxStyle>
             </ContainerStyle>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>            
+            <TableContainer>
+            <Table striped bordered hover>
+  <thead>
+    <tr>
+      <Th></Th>
+      <Th>1개월</Th>
+      <Th>3개월</Th>
+      <Th>6개월</Th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <Td bgcolor="yellow">헬스</Td>
+      <Td>70000원</Td>
+      <Td>170000원</Td>
+      <Td>240000원</Td>
+    </tr>
+    <tr>
+      <Td>P.T</Td>
+      <Td colSpan="3">1회당 50000원</Td>
+      
+    </tr>
+    <tr>
+      <Td>그룹 P.T</Td>
+      <Td colSpan="3">1회 당 40000원</Td>
+      
+    </tr>
+  </tbody>
+</Table>
+</TableContainer>
+{shop.ptNo === shop.user ? (<>
+          <Button variant="contained" color="primary">
+        수정
+      </Button>  <Button variant="contained" color="secondary">
+       삭제
+      </Button>  
+      </>): (<>""
+      </>)
+        }      
             <Divider/>
-
+            
             <br/><br/>
 
             <MapInfo name={shop.pt_name}add={shop.pt_address}/>
             <br/>
-
+            
             <CopyToClipboard text={shop.pt_address}
                 onCopy={() => setState({copied: true})}>
-                <button onClick={getAdd}>주소복사</button>
+              <Button variant="contained" color="primary" onClick={getAdd}>
+           주소복사
+           </Button>
+               
             </CopyToClipboard>
             <br/><br/>
             <h2 className="shopInfo">REVIEW</h2> 
