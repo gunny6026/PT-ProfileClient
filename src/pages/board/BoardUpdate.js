@@ -62,12 +62,13 @@ const BoardUpdate = (props) => {
 			},
 			body: JSON.stringify(board)
 		}).then(res => {
-			return res.text();
+            return res.text();
+            
 		}).then(res => {
 			if (res === "ok") {
                 window.location="/boardDetail/"+ no
 			} else {
-				alert('글등록 실패');
+				alert('수정 실패');
 			}
 		});
 
@@ -98,7 +99,9 @@ const BoardUpdate = (props) => {
             </tr>
             <tr>
                 <td>내용</td>
-                <td> <textarea cols="70" row="15" value={board.content} onChange={changeValue1}></textarea></td>
+                <td> <textarea cols="70" row="15" value={board.content} onChange={changeValue1}>
+                            
+                    </textarea></td>
 
         </tr>
 

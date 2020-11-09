@@ -20,6 +20,7 @@ import BoardList from './pages/board/BoardList';
 import BoardWrite from './pages/board/BoardWrite';
 import BoardDetail from './pages/board/BoardDetail';
 import BoardUpdate from './pages/board/BoardUpdate';
+import ProfileRegister from './pages/board/ProfileRegister';
 
 
 
@@ -53,6 +54,7 @@ function App() {
         <Route path="/boardWrite" exact={true} component={BoardWrite}/>
         <Route path="/boardDetail/:no" exact={true} component={BoardDetail}/>
         <Route path="/boardUpdate/:no" exact={true} component={BoardUpdate}/>
+        <Route path="/profileregister" exact={true} component={ProfileRegister}/>
      </Switch>
 
    </div>

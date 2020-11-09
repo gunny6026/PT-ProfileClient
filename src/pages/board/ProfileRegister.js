@@ -5,6 +5,8 @@ const Container = styled.div`
     margin-top: 60px;
     text-align: center;
     background-color: gray;
+    height:50px;
+    margin-bottom:5px;
 `;
 const InputBox = styled.div`
     
@@ -41,8 +43,7 @@ const Buttons = styled.div`
 `;
 
 
-const PtRegister = (props) => {
-
+const ProfileRegister = (props) => {
     const submitPt = (e) =>{
         console.log("Dd");
         e.preventDefault();
@@ -59,7 +60,7 @@ const PtRegister = (props) => {
     .then( (res) => {
         if(res ==="ok"){
             alert("등록되었습니다.");
-            props.history.push("/")
+            props.history.push("/profilehome")
             
         }
     })
@@ -68,8 +69,8 @@ const PtRegister = (props) => {
 
     return (
         <div>
-            <Container>
-            <h1>PT 등록</h1>
+             <Container>
+            <h1>BodyProfile Studio</h1>
             </Container>
             <InputBox>
             <Form id="ptForm">
@@ -85,8 +86,9 @@ const PtRegister = (props) => {
             <button type="reset">취소</button>
             </Buttons>
             </InputBox>
+            
         </div>
     );
 };
 
-export default PtRegister;
+export default ProfileRegister;

@@ -108,7 +108,7 @@ function rand() {
 
   
 
-
+//Header 시작
 const Header = (props) => {
 
 
@@ -134,7 +134,8 @@ fetch("http://10.100.102.27:8000/user/info",{
 useEffect(() => {
   userFetch();
 }, []);
-  
+
+  //리덕스 
     const isLogin = useSelector((store)=> store.isLogin);
     const dispatch = useDispatch();
     const classes = useStyles();
@@ -209,6 +210,21 @@ useEffect(() => {
       dispatch(logout());
   }
 
+  const handleSubmit = () =>{
+     
+    
+    
+    
+   
+  }
+
+
+    const[inputText , setInputText] = useState("");
+    const[list , setList] = useState("");
+    const onChange = (e) =>{
+      setInputText(e.target.value);
+    }
+
     return (
       <header>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -231,7 +247,10 @@ useEffect(() => {
                   <div style={navbarSearch}>
                       
                       <div style={searchBlank}>  
-                          <input type="search" placeholder="Search"></input>
+                          <input type="search" placeholder="Search" value={inputText} 
+                          onChange={onChange} />
+                      
+                      <button onClick={() => handleSubmit()}>검색</button>
                       </div>
                   </div>
                   <ul className="navbar-nav ml-auto" style={linkStyle}>

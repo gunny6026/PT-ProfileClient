@@ -109,7 +109,7 @@ const BoardDetail = (props) => {
 
         <tr>
                 <td>내용</td>
-                <td> <textarea cols="70" row="15" value={board.content} readOnly="true"></textarea></td>
+                <td> <textarea cols="70" row="15" value={board.content}></textarea></td>
 
         </tr>
        

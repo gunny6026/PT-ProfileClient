@@ -34,13 +34,6 @@ const CardBox =styled.div`
   margin : 20px;
 `;
 
-const CardContainer = styled.div`
-
-  
-   
-    
-  
-`;
 
 export default function MediaCard() {
   const classes = useStyles();
@@ -61,11 +54,8 @@ export default function MediaCard() {
   },[])
 
   return (
-    <div>
-
-    <CardContainer>    
-    <CardDivStyle> 
-      
+    
+    <CardDivStyle>  
       {card.map( (cards) => (
     <Card>
     <Link shop={cards} to={`/shop/${cards.ptNo}`}>
@@ -95,11 +85,8 @@ export default function MediaCard() {
       </CardActions>
     </Card>
     ))}
-    
     </CardDivStyle>
-   
-    </CardContainer>
-    </div>
+
 
   );
 }

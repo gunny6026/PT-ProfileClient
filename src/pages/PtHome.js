@@ -9,8 +9,9 @@ import CardForm from '../pages/board/CardForm';
 
 
 
-const PtHome = () => {
-  
+const PtHome = (props) => {
+    console.log(props)
+    console.log(1);
   const [user, setUser] = useState({});
 
   useEffect ( () => {
@@ -28,14 +29,29 @@ const PtHome = () => {
 
   } ,[])
   
+
+  const Button = styled.button`
+  
+    background-color : greenyellow;
+    font-size: 25px;
+    border: 2px solid green;
+    font-weight: bold;
+    margin : 10px auto;
+   
+  `;
+
+  const ButtonBox = styled.div`
+    margin-right : 25px ;
+    float: right;
+  `;
     
     return (
         <div>
-            
+              
                   <AddrModal/>
                  
                     <Slider/>
-                    {user.auth_pt === 3 ?   <Link to = "/ptregister"> <button>등록</button> </Link>
+                    {user.auth_pt === 3 ?   <Link to = "/ptregister"> <ButtonBox><Button>등록</Button></ButtonBox> </Link>
                   
                   :   ""
                 
