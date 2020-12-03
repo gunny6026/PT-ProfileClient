@@ -9,7 +9,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Shop from './pages/pt_list/Shop';
 import List from './pages/pt_list/List';
-import Etc from './pages/Etc';
 import Admin from './pages/Admin';
 import Card from './pages/board/CardForm';
 import PtRegister from './pages/board/PtRegister';
@@ -40,7 +39,9 @@ function App() {
   
   return (
    <div>
+    <div className="header">
      <Header/>
+    </div>
      <Switch>        
         <Route path="/" exact={true} component={PtHome}/>
         <Route path="/ptList" exact={true} component={List}/>
@@ -55,8 +56,10 @@ function App() {
         <Route path="/boardDetail/:no" exact={true} component={BoardDetail}/>
         <Route path="/boardUpdate/:no" exact={true} component={BoardUpdate}/>
         <Route path="/profileregister" exact={true} component={ProfileRegister}/>
-     </Switch>
+        <Route path="/admin" exact={true} component={Admin} />
 
+     </Switch>
+    
    </div>
   );
 }

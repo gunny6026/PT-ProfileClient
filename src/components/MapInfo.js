@@ -9,10 +9,12 @@ const MapInfo = (props) => {
 
     useEffect(() => {
         const container = document.getElementById("myMap");
-        const options = {
-          center: new kakao.maps.LatLng(35.157588, 129.058822),
-          level: 3,
-        };
+        console.log("sibal");    
+  
+            const options = {
+                    center: new kakao.maps.LatLng(35.157588, 129.058822),
+                    level: 3
+            };
         const map = new kakao.maps.Map(container, options);
 
         const geo = new kakao.maps.services.Geocoder();

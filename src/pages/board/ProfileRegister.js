@@ -50,7 +50,7 @@ const ProfileRegister = (props) => {
         const ptData = document.getElementById("ptForm");
         const Datas = new FormData(ptData);
         console.log(Datas);
-        fetch("http://10.100.102.27:8000/pt/write",{
+        fetch("http://10.100.102.27:8000/st/write",{
             method:"POST",
             headers : {
                 "Authorization" : localStorage.getItem("Authorization"),

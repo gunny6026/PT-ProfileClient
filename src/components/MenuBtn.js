@@ -46,25 +46,27 @@ const MenuBtn = () => {
           onKeyDown={toggleDrawer(anchor, false)}
         >
           <List>
-            <Link to={`/etc`}>
+            <Link to={`/`}>
                 <ListItem button> 
                   <ListItemIcon>🍴</ListItemIcon>          
                   <ListItemText primary="식단" />
                 </ListItem>
             </Link>
-            <Link to={`/etc`}>
+            <Link to={`/`}>
                 <ListItem button> 
                   <ListItemIcon>👕</ListItemIcon>          
                   <ListItemText primary="스포츠웨어" />
                 </ListItem>
             </Link>
-            <Link to={`/etc`}>
+            <Link to={`/`}>
                 <ListItem button> 
                   <ListItemIcon>👨‍🎓</ListItemIcon>          
                   <ListItemText primary="강의영상" />
                 </ListItem>
             </Link>
             <Link to={`/boardlist`}>
+   
+
                 <ListItem button> 
                   <ListItemIcon>📃</ListItemIcon>          
                   <ListItemText primary="게시판" />

@@ -41,7 +41,7 @@ const StyledTableCell = withStyles((theme) => ({
 
 const OrderPage = () => {
     const [order, setOrder] = useState([]);
-    console.log("dd");
+
     useEffect(() => {
         fetch("http://10.100.102.27:8000/user/info",{
             headers:{
@@ -55,7 +55,7 @@ const OrderPage = () => {
  }, []);
 
  function details(){
- 
+  console.log("dd");
  }
     
     return (

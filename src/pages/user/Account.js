@@ -90,8 +90,8 @@ headers: {
   if (res === "ok") {
     alert("탈퇴 되셨습니다.");
   }else{
-alert("탈퇴 실패");
-}
+    alert("탈퇴 실패");
+  }
 });
 }
 

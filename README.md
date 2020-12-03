@@ -76,7 +76,11 @@ npm install --save react react-copy-to-clipboard
 
 yarn add redux react-redux
 
+<<<<<<< HEAD
 =======
 ''tqtqtqqtqtqtqtt
 
 > > > > > > > 282bb45a98e1f64a38ab5b65d8d084b620c6d572
+=======
+adsf
+>>>>>>> 1d604daa6ce1feaf18911e4376d7325064122b8b
