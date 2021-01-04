@@ -1,7 +1,14 @@
-import React, { useEffect } from 'react';
+import { KeyboardCapslockOutlined } from '@material-ui/icons';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+const NavSt = styled.div`
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 2px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+`;
 //상품 번호를 장바구니 테이블에 넣는다
 const NavTool = (props) => {
     const {price, ptNo} = props;
@@ -52,8 +59,13 @@ const pay = (e) =>{
 }
 
     return (
+
+      
+        
+      <NavSt>
         <div >
           <h1>{price} 원</h1>
+          <div> <img src={"\\img\\kakako.png"}  alt=""  width="20%"/></div>
           <h2 className="salePrice">할인가 : {price * 0.8}</h2>
           <br/>
           <Link to={`/sangdam`}>
@@ -69,6 +81,8 @@ const pay = (e) =>{
           <button onClick={addCart}>장바구니 추가</button>
           <button onClick={pay}>바로 결제</button>
         </div>
+        </NavSt>
+
     );
 };
 

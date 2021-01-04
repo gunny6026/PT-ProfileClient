@@ -6,11 +6,50 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Slider from '../components/Slider';
 import CardForm from '../pages/board/CardForm';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
+
+const CardWrap = styled.div`
+  text-align:center;
+  margin-right:30px;
+  margin-left:30px;
+  margin-top:10px;
+  margin-bottom:300px;
+`;
+
+const SpanStyle = styled.span`
+  font-size:20px;
+  font-weight:bolder;
+  padding-left:30px;
+  color:grey;
+`;
+
+const TitleStyle = styled.span`
+  font-size:40px;
+  font-weight:bolder;
+  padding-top:30px;
+  padding-left:40px;
+`;
+
+const Button = styled.button`
+  
+    background-color : white;
+    font-size: 15px;
+    border: 2px solid lightgray;
+    font-weight: bold;
+    margin : 10px auto;
+   
+  `;
+
+  const ButtonBox = styled.div`
+    margin-right : 25px ;
+    float: right;
+  `;
 
 
+  
 
 const PtHome = (props) => {
-  console.log(props.name);
+  //console.log(props.location.state.keyword);
   const [user, setUser] = useState({});
 
   useEffect ( () => {
@@ -30,19 +69,17 @@ const PtHome = (props) => {
   
     
     return (
-        <div>
-            
+             <div>
                   <AddrModal/>
-                  {user.auth_pt === 3 ?   <Link to = "/ptregister"> <button>등록</button> </Link>
-                  
-                  :   ""
-                
-
-                }
+                    <TitleStyle>PT</TitleStyle>
                     <Slider/>
-                    <CardForm/>
+                 
+                    <br/><br/>
+                    <SpanStyle><StarBorderIcon/>이 달의 인기 센터</SpanStyle>
+                    <CardWrap>
+                    <CardForm />
+                    </CardWrap>
                   <Footer/>
-
               </div>
     )
 }

@@ -3,10 +3,8 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import MapInfo from '../../components/MapInfo';
-import NavTool from '../../components/NavTool';
+import StdNavTool from '../../components/StdNavTool';
 import ReviewForm from '../../components/ReviewForm';
-import Table from 'react-bootstrap/Table';
-import Button from '@material-ui/core/Button';
 import ReviewSlide from '../../components/ReviewSlide';
 
 
@@ -56,22 +54,7 @@ const navBar = styled.div`
    
 `;
 
-const TableContainer =styled.div`
-    width: 60%;
-`;
-
-const Td = styled.td`
-    text-align: center;
-    font-size: 25px;
-`;
-
-const Th = styled.th`
-    text-align: center;
-    font-size: 25px;
-`;
-
-
-const Shop = (props) => {
+const StdShop = (props) => {
     
     const [reviews , setReview] = useState();
 
@@ -90,32 +73,32 @@ const Shop = (props) => {
     
     
 
-		/*let jwtTokenTemp = localStorage.getItem("Authorization");
-		let jwtToken = jwtTokenTemp.replace('Bearer ', '');
+      /*let jwtTokenTemp = localStorage.getItem("Authorization");
+      let jwtToken = jwtTokenTemp.replace('Bearer ', '');
 
-		setUserId(jwt_decode(jwtToken).id); 
+      setUserId(jwt_decode(jwtToken).id); 
 
-		if(!isLogin){
-			alert('로그인 후 이용할 수 있습니다.');
-			props.history.push("/");  
+      if(!isLogin){
+         alert('로그인 후 이용할 수 있습니다.');
+         props.history.push("/");  
         }
         fetch("http://localhost:8000/post/"+props.match.params.id, {
-			method: "GET",
-			headers:{
-				"Authorization": localStorage.getItem("Authorization")
-			}
-		}).then(res=>res.json()).then(res=>{
-			setPost(res); 
-		});
+         method: "GET",
+         headers:{
+            "Authorization": localStorage.getItem("Authorization")
+         }
+      }).then(res=>res.json()).then(res=>{
+         setPost(res); 
+      });
         */
        function shopFetch(no){
-           fetch("http://10.100.102.27:8000/ptDetail/" + no, {
+           fetch("http://10.100.102.27:8000/stDetail/"+ no, {
             method: "GET"
             
         }).then(res=>res.json())
         .then(res=>{
             console.log(res);
-            console.log(shop.pt_address);
+            console.log(shop.st_address);
 
             setShop(res); 
         });
@@ -131,12 +114,12 @@ const Shop = (props) => {
 
     return (
         <div>
-
-            <h1 className="al_middle">{shop.pt_name}</h1>
+            <br/><br/><br/><br/><br/><br/>
+            <h1 className="al_middle">{shop.st_name}</h1>
             <div>
             <br/><br/><br/>
             </div>
-            <img src={shop.pt_img} alt="not exist iamge"/>
+            <img src={shop.st_img} alt="not exist iamge"/>
             <br/><br/>
             <Divider/>
             <ContainerStyle>
@@ -144,21 +127,20 @@ const Shop = (props) => {
                 <ContentStyle>
                     <br/><br/>
                     <h4>
-                        {shop.pt_content}
+                        {shop.st_content}
                     </h4>
                     <br/><br/>
                     <Divider/>
                     <br/><br/>
                     <h4>
-                        {shop.pt_address}
+                        {shop.st_address}
                     </h4>       
                     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> 
-            
-                    <MapInfo name={shop.pt_name} add={shop.ptAddress}/>
+                    
+                    <MapInfo name={shop.st_name} add={shop.stAddress}/>
                     <br/>
 
-                    <CopyToClipboard text={shop.ptAddress}
+                    <CopyToClipboard text={shop.stAddress}
                         onCopy={() => setState({copied: true})}>
                         <button onClick={getAdd}>주소복사</button>
                     </CopyToClipboard>
@@ -167,71 +149,27 @@ const Shop = (props) => {
                 
                 <BoxStyle>
                     <div className="nav">
-                    <NavTool price={shop.pt_price} ptNo={shop.ptNo}/>
+                    <StdNavTool price={shop.st_price} stNo={shop.stNo}/>
                     </div>
                 </BoxStyle>
             </ContainerStyle>
-            <br/><br/>
-            <TableContainer>
-            <Table striped bordered hover>
-  <thead>
-    <tr>
-      <Th></Th>
-      <Th>1개월</Th>
-      <Th>3개월</Th>
-      <Th>6개월</Th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <Td bgcolor="yellow">헬스</Td>
-      <Td>70000원</Td>
-      <Td>170000원</Td>
-      <Td>240000원</Td>
-    </tr>
-    <tr>
-      <Td>P.T</Td>
-      <Td colSpan="3">1회당 50000원</Td>
-      
-    </tr>
-    <tr>
-      <Td>그룹 P.T</Td>
-      <Td colSpan="3">1회 당 40000원</Td>
-      
-    </tr>
-  </tbody>
-</Table>
-<MapInfo name={shop.pt_name}add={shop.pt_address}/>
-            <br/>
-</TableContainer>
-
+                  
             <Divider/>
 
             <br/><br/>
 
-            
-
-            <CopyToClipboard text={shop.pt_address}
-                onCopy={() => setState({copied: true})}>
-              <Button variant="contained" color="primary" onClick={getAdd}>
-           주소복사
-           </Button>
-            </CopyToClipboard>
             <br/><br/>
-            <h2 className="shopInfo">REVIEW</h2> 
-            <ReviewForm />
+            <h2 className="al_middle">REVIEW</h2> 
+
             <br/>
-           
-        <ReviewSlide/>
-          <Button variant="contained" color="primary">
-        수정
-      </Button>  <Button variant="contained" color="secondary">
-       삭제
-      </Button>  
-      
-          
+
+            <ReviewSlide/>
+            
+            <br/>
+
+            <ReviewForm stNo={shop.stNo}/>
         </div>
     );
 };
 
-export default Shop;
+export default StdShop;

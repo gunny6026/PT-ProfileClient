@@ -45,7 +45,7 @@ export default function MediaCard(){
   
   const [card , setCard] = useState([]);
 
-  const [wishPtNo, setwishPtNo] = useState([]);
+  const [wishStNo, setwishStNo] = useState([]);
 
   useEffect(()=> {
 
@@ -60,11 +60,11 @@ export default function MediaCard(){
       });
 
 
-    fetch("http://10.100.102.27:8000/ptList")
+    fetch("http://10.100.102.27:8000/stList")
     .then(res => res.json()).then(
       res =>{
             setCard(res.content)
-            console.log("ptList", res.content);
+            console.log("stList", res);
             //setwishPtNo(res.content.user);
       }
     )
@@ -72,13 +72,13 @@ export default function MediaCard(){
 
   
 
-  function CartBtn(ptNo){
+  function CartBtn(stNo){
    
 
     const cardType = document.getElementById("cardForm");
     const form = new FormData(cardType); 
 
-  fetch("http://10.100.102.27:8000/wish/"+ptNo, {
+  fetch("http://10.100.102.27:8000/wish/"+stNo, {
    method:"POST",
    body: form,
     headers: {
@@ -122,19 +122,19 @@ export default function MediaCard(){
     <CardDivStyle>  
     {card.map( (cards) => (
     <Card>
-    <Link shop={cards} to={`/shop/${cards.ptNo}`}>
+    <Link shop={cards} to={`/stshop/${cards.stNo}`}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={cards.pt_img}
+          image={cards.st_img}
           title="Contemplative Reptile"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            {cards.pt_name}
+            {cards.st_name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-          {cards.ptAddress}
+          {cards.st_address}
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -143,6 +143,7 @@ export default function MediaCard(){
         <form id="cardForm"><input type="hidden" name="type" value="pt" /></form>
         <Button size="small" color="primary" onClick={() => CartBtn(cards.ptNo)}>
         <span class="fr66n"><ButtonStyle class="wpO6b " type="button"><div class="QBdPU "><span class="FY9nT"><svg aria-label="좋아요 취소" class="_8-yf5 " fill="#ed4956" height="24" viewBox="0 0 48 48" width="24"><path d="M34.6 3.1c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5s1.1-.2 1.6-.5c1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg></span></div></ButtonStyle></span>
+
     </Button>
       </CardActions>
     </Card>

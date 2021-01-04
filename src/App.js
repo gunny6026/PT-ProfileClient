@@ -15,6 +15,11 @@ import PtRegister from './pages/board/PtRegister';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { login } from './store';
+import BoardList from './pages/board/BoardList';
+import BoardWrite from './pages/board/BoardWrite';
+import BoardDetail from './pages/board/BoardDetail';
+import BoardUpdate from './pages/board/BoardUpdate';
+import ProfileRegister from './pages/board/ProfileRegister';
 
 
 
@@ -46,7 +51,13 @@ function App() {
         <Route path="/card" exact={true} component={Card}/>
         <Route path="/ptRegister" exact={true} component={PtRegister}/>
         <Route path="/shop/:id" exact={true} component={Shop} />
+        <Route path="/boardlist" exact={true} component={BoardList} />
+        <Route path="/boardWrite" exact={true} component={BoardWrite}/>
+        <Route path="/boardDetail/:no" exact={true} component={BoardDetail}/>
+        <Route path="/boardUpdate/:no" exact={true} component={BoardUpdate}/>
+        <Route path="/profileregister" exact={true} component={ProfileRegister}/>
         <Route path="/admin" exact={true} component={Admin} />
+
      </Switch>
     
    </div>

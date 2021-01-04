@@ -5,6 +5,8 @@ const Container = styled.div`
     margin-top: 60px;
     text-align: center;
     background-color: gray;
+    height:50px;
+    margin-bottom:5px;
 `;
 const InputBox = styled.div`
     
@@ -41,15 +43,14 @@ const Buttons = styled.div`
 `;
 
 
-const PtRegister = (props) => {
-
+const ProfileRegister = (props) => {
     const submitPt = (e) =>{
         console.log("Dd");
         e.preventDefault();
         const ptData = document.getElementById("ptForm");
         const Datas = new FormData(ptData);
         console.log(Datas);
-        fetch("http://10.100.102.27:8000/pt/write",{
+        fetch("http://10.100.102.27:8000/st/write",{
             method:"POST",
             headers : {
                 "Authorization" : localStorage.getItem("Authorization"),
@@ -59,7 +60,7 @@ const PtRegister = (props) => {
     .then( (res) => {
         if(res ==="ok"){
             alert("등록되었습니다.");
-            props.history.push("/")
+            props.history.push("/profilehome")
             
         }
     })
@@ -68,19 +69,15 @@ const PtRegister = (props) => {
 
     return (
         <div>
-            <Container>
-            <h1>PT 등록</h1>
+             <Container>
+            <h1>BodyProfile Studio</h1>
             </Container>
             <InputBox>
             <Form id="ptForm">
             <Input type="text" name="pt_name" placeholder="이름을 등록하세요" /> 
             <Input type="text" name="pt_address" placeholder="주소를 등록하세요" /> 
             <Input type="text" name="pt_content" placeholder="내용을 등록하세요" /> 
-            <Input type="text" name="pt_price" placeholder="1개월 가격"  /> 
-            <Input type="text" name="pt_price" placeholder="3개월 가격"  />
-            <Input type="text" name="pt_price" placeholder="6개월 가격"  />
-            <Input type="text" name="pt_price" placeholder="P.T 1회 가격"  />
-            <Input type="text" name="pt_price" placeholder="그룹 P.T 1회 가격"  />
+            <Input type="text" name="pt_price" placeholder="가격을 등록하세요"  /> 
             <Input type="file" name="pt_img" placeholder="사진 등록" accept="image/png , image/jpeg" /> <br/>
             </Form>
 
@@ -89,8 +86,9 @@ const PtRegister = (props) => {
             <button type="reset">취소</button>
             </Buttons>
             </InputBox>
+            
         </div>
     );
 };
 
-export default PtRegister;
+export default ProfileRegister;

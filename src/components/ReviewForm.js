@@ -4,6 +4,8 @@ import Modal from '@material-ui/core/Modal';
 import InputText from './InputText';
 import { Editor, EditorState, RichUtils } from 'draft-js';
 
+import Button from '@material-ui/core/Button';
+import { Editor, EditorState, RichUtils } from 'draft-js';
 
 function rand() {
     return Math.round(Math.random() * 20) - 10;
@@ -115,10 +117,10 @@ const ReviewForm = (props) => {
    
     return (
         <div>
-            <button type="button" onClick={handleOpen}>
-                리뷰 작성
-            </button>
-
+            
+            <Button variant="contained" color="secondary" onClick={handleOpen}>
+            리뷰 작성
+</Button>
             <Modal
                 open={open}
                 onClose={handleClose}

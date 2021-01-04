@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import AccountCircleIcon from  '@material-ui/icons/AccountCircle';
 import { makeStyles,withStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import LoginForm from '../pages/user/LoginForm';
@@ -10,6 +10,8 @@ import Account from '../pages/user/Account';
 import PtHome from '../pages/PtHome';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../store';
+import MenuIcon from '@material-ui/icons/Menu';
+import styled from 'styled-components';
 import MenuBtn from './MenuBtn';
 
 
@@ -27,13 +29,6 @@ const navbarSearch={
    
 }
 
-const searchStyle ={
-    
-}
-
-const searchBlank={
-
-}
 
 const LinkStyle={
   textDecoration:"none",
@@ -45,6 +40,12 @@ const LiStyle={
   margin:"5px",
   cursor:"pointer",
 }
+
+const BarStyle= styled.div`
+  position: absolute;
+  left:15px;
+  color:white;
+`;
 
 function rand() {
     return Math.round(Math.random() * 20) - 10;
@@ -105,12 +106,23 @@ function rand() {
   }))(MenuItem);
 
 
+
+
+
   
 
 
 const Header = (props) => {
 
+  //검색기능
 
+  const [keyword, setKeyword] = useState("");
+  
+  function searchHandle(e){
+    setKeyword(e.target.value);
+  }
+
+  //로그인
   const [user, setUser] = useState({
     id:"",
     name:"",
@@ -126,7 +138,6 @@ fetch("http://10.100.102.27:8000/user/info",{
   .then((res) => res.json())
   .then((res) => {
     setUser(res);
-    console.log(res);
   });
 }
 
@@ -208,7 +219,7 @@ useEffect(() => {
       localStorage.removeItem("Authorization");
       dispatch(logout());
   }
-  const [keyword, setKeyword] = useState("");
+ 
 
 
   function search() {
@@ -219,10 +230,10 @@ useEffect(() => {
       <header>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
           <div className="container">
+                  <BarStyle><MenuBtn/></BarStyle>
               <ul className="navbar-nav">
-                  <li><MenuBtn/></li>
                   <li class="nav-item active">
-                  <Link to="/" className="navbar-brand" >PT</Link>
+                  <Link to="/" className="navbar-brand">PT</Link>
                   </li>
                   <li class="nav-item active">
                   <span className="navbar-brand">&</span>
@@ -236,8 +247,20 @@ useEffect(() => {
               <div className="collapse navbar-collapse" id="navbarResponsive" style={listStyle}>
                   <div style={navbarSearch}>
                       
-                      <div style={searchBlank}>  
-                          <input type="search" placeholder="Search" onChange={(e) => setKeyword({...keyword, [e.target.name] : e.target.value })}></input>
+                      <div>  
+                        
+                          <input
+                          classes={{
+                            root:classes.inputRoot,
+                            input:classes.inputInput,
+                          }}
+                           type="search"
+                           placeholder="Search"
+                           onChange={searchHandle}
+                           name="keyword"
+                           />
+                           
+                           
                       </div>
                   </div>
                   <ul className="navbar-nav ml-auto" style={linkStyle}>
@@ -293,6 +316,11 @@ useEffect(() => {
                     <StyledMenuItem>
                     <Link to="/cart" style={LinkStyle}>
                       <ListItemText primary="장바구니" />
+                      </Link>
+                    </StyledMenuItem>
+                    <StyledMenuItem>
+                    <Link to="/ptregister" style={LinkStyle}>
+                      <ListItemText primary="등록하기" />
                       </Link>
                     </StyledMenuItem>
 
