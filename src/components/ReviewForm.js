@@ -5,7 +5,7 @@ import InputText from './InputText';
 import { Editor, EditorState, RichUtils } from 'draft-js';
 
 import Button from '@material-ui/core/Button';
-import { Editor, EditorState, RichUtils } from 'draft-js';
+
 
 function rand() {
     return Math.round(Math.random() * 20) - 10;

@@ -41,7 +41,7 @@ function submit(e){
   e.preventDefault();
   console.log(user);
 
-  fetch("http://10.100.102.27:8000/user/join", {
+  fetch("http://localhost:8000/user/join", {
    method:"POST",
     body:JSON.stringify(user),
     headers: {
