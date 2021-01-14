@@ -46,7 +46,7 @@ const LoginForm = (props) => {
 
 		e.preventDefault();
 
-    fetch("http://10.100.102.27:8000/user/login",{
+    fetch("http://localhost:8000/user/login",{
       method:"POST",
       body:JSON.stringify(user),
       headers:{

@@ -15,7 +15,7 @@ const WriteContainer = styled.div`
     margin-right:auto;
     background-color: beige;
     display: block;
-    width: 50%;
+    width: 70%;
     padding:30px;
     border-collapse: separate;
     border-spacing :1px;
@@ -82,7 +82,7 @@ const BoardWrite = (props) => {
     function submit(e){
         e.preventDefault();
     
-        fetch("http://10.100.102.27:8000/board/write", {
+        fetch("http://localhost:8000/board/write", {
             method: "POST",
             body: JSON.stringify(board),
             headers:{
@@ -91,11 +91,14 @@ const BoardWrite = (props) => {
             }
         })
         .then(res=> {
+            
+            console.log("board 객채 : ",board);
             return res.text();
-            console.log(res);
+          
         })
         .then( res=>{
             if(res ==="ok"){
+                alert("글 등록 성공");
                 props.history.push("/boardlist");
             }else{
                 alert("글 등록 실패");
